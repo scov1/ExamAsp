@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamAsp", "ExamAsp\ExamAsp.csproj", "{681528BC-76D8-426A-AF53-CDE753FE4B7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{DE733FED-014A-4538-9B02-DAF5A1824B30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{3C4089B0-D68A-4975-A536-7BB227F72151}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{681528BC-76D8-426A-AF53-CDE753FE4B7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{681528BC-76D8-426A-AF53-CDE753FE4B7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{681528BC-76D8-426A-AF53-CDE753FE4B7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{681528BC-76D8-426A-AF53-CDE753FE4B7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE733FED-014A-4538-9B02-DAF5A1824B30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE733FED-014A-4538-9B02-DAF5A1824B30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE733FED-014A-4538-9B02-DAF5A1824B30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE733FED-014A-4538-9B02-DAF5A1824B30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C4089B0-D68A-4975-A536-7BB227F72151}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C4089B0-D68A-4975-A536-7BB227F72151}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C4089B0-D68A-4975-A536-7BB227F72151}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C4089B0-D68A-4975-A536-7BB227F72151}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
