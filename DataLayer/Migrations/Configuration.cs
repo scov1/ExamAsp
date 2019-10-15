@@ -5,7 +5,7 @@ namespace DataLayer.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<DataLayer.Entities.Model1>
+    internal sealed class Configuration : DbMigrationsConfiguration<Entities.Model1>
     {
         public Configuration()
         {
