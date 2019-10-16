@@ -3,8 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Configuration;
 
 namespace DataLayer.UnitOfWork
 {
@@ -22,7 +24,7 @@ namespace DataLayer.UnitOfWork
                 return entityRepository == null ? new Repository<T>(db) : entityRepository;
             }
         }
-        public UnitOfWork(DbContext model)
+        public UnitOfWork(Context model)
         {
             this.db = model;
             db.Database.CommandTimeout = 180;

@@ -93,8 +93,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\UnityConfig.cs" />
-    <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="BModel\AuthorBO.cs" />
     <Compile Include="BModel\BookBO.cs" />
     <Compile Include="BModel\CommentBO.cs" />
@@ -114,6 +112,9 @@
       <Project>{DE733FED-014A-4538-9B02-DAF5A1824B30}</Project>
       <Name>DataLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Start\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
