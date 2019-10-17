@@ -13,5 +13,7 @@ namespace ExamAsp.Models
         public int? Pages { get; set; }
         public int? GenreId { get; set; }
         public byte[] ImageData { get; set; }
+
+
     }
 }

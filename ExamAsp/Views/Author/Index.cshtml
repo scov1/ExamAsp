@@ -1,0 +1,37 @@
+﻿@model ExamAsp.Models.AuthorModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div class="btn_create">
+        @Html.ActionLink("Создать", "Edit", "Author")
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Имя</th>
+                <th scope="col">Фамилия</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @foreach (var item in ViewBag.Authors)
+                {
+                <tr>
+                    <th scope="row">@item.FirstName</th>
+                    <th scope="row">@item.LastName</th>
+                    <td scope="row">@Html.ActionLink("Редактировать", "Edit", "Author", new { id = @item.Id }, null)</td>
+                    <td scope="row">@Html.ActionLink("Удалить", "Delete", "Author", new { id = @item.Id }, null)</td>
+                </tr>
+            }
+        </table>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

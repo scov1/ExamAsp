@@ -36,7 +36,7 @@ namespace BusinessLayer.BModel
             return genres;
         }
 
-        public List<GenreBO> GetListGenre()
+        public List<GenreBO> GetGenreList()
         {
             List<GenreBO> genres = new List<GenreBO>();
 
@@ -49,15 +49,15 @@ namespace BusinessLayer.BModel
 
         public void Add(IUnitOfWork<Genres> unitOfWork)
         {
-            var books = mapper.Map<Genres>(this);
-            unitOfWork.EntityRepository.Add(books);
+            var genre = mapper.Map<Genres>(this);
+            unitOfWork.EntityRepository.Add(genre);
             unitOfWork.Save();
         }
 
         public void Update(IUnitOfWork<Genres> unitOfWork)
         {
-            var books = mapper.Map<Genres>(this);
-            unitOfWork.EntityRepository.Update(books);
+            var genre = mapper.Map<Genres>(this);
+            unitOfWork.EntityRepository.Update(genre);
             unitOfWork.Save();
         }
 

@@ -35,7 +35,51 @@ namespace BusinessLayer.BModel
             return ratings;
         }
 
+        public List<RatingBO> GetAllListRating()
+        {
+            List<RatingBO> ratings = new List<RatingBO>();
 
+            using (var unityOfWork = unitOfWorkFactory.Create())
+            {
+                ratings = unityOfWork.EntityRepository.GetAll().Select(item => mapper.Map<RatingBO>(item)).ToList();
+            }
+            return ratings;
+        }
+
+
+        public void Save()
+        {
+            using (var unitOfWork = unitOfWorkFactory.Create())
+            {
+                if (Id != 0)
+                    Update(unitOfWork);
+                else
+                    Add(unitOfWork);
+            }
+        }
+
+        void Add(IUnitOfWork<Rating> unitOfWork)
+        {
+            var rating = mapper.Map<Rating>(this);
+            unitOfWork.EntityRepository.Add(rating);
+            unitOfWork.Save();
+        }
+
+        void Update(IUnitOfWork<Rating> unitOfWork)
+        {
+            var rating = mapper.Map<Rating>(this);
+            unitOfWork.EntityRepository.Update(rating);
+            unitOfWork.Save();
+        }
+
+        public void Delete(int id)
+        {
+            using (var unitOfWork = unitOfWorkFactory.Create())
+            {
+                unitOfWork.EntityRepository.Delete(id);
+                unitOfWork.Save();
+            }
+        }
     }
 
 

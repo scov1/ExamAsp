@@ -105,6 +105,7 @@ namespace ExamAsp.App_Start
                 cfg.CreateMap<CommentBO, Comments>()
                 .ConstructUsing(item => DependencyResolver.Current.GetService<Comments>());
             }
-         );
+        );
+        }
     }
 }

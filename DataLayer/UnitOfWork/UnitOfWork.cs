@@ -24,7 +24,7 @@ namespace DataLayer.UnitOfWork
                 return entityRepository == null ? new Repository<T>(db) : entityRepository;
             }
         }
-        public UnitOfWork(Context model)
+        public UnitOfWork(DbContext model)
         {
             this.db = model;
             db.Database.CommandTimeout = 180;
