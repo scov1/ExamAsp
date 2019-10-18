@@ -24,7 +24,7 @@ namespace ExamAsp.Controllers
             var userList = userBO.GetUsersList();
             ViewBag.Users = userList.Select(m => mapper.Map<UserModel>(m)).ToList();
 
-            return View(ViewBag.Users);
+            return View();
         }
 
 

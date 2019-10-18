@@ -15,14 +15,26 @@ namespace DataLayer.Repository
         private readonly DbContext db = null;
         private readonly DbSet<T> table = null;
 
-        public Repository(DbContext context)
+        public Repository()
         {
-            db = context;
+            db = new Model1();
+            table = db.Set<T>();
+        }
+
+        public Repository(DbContext db)
+        {
+            this.db = db;
+            table = db.Set<T>();
         }
 
         public void Add(T item)
         {
             table.Add(item);
+        }
+
+        public IEnumerable<T> GetAll()
+        {
+            return table.ToList();
         }
 
         public void Delete(int id)
@@ -31,10 +43,7 @@ namespace DataLayer.Repository
             table.Remove(notEmpty);
         }
 
-        public IEnumerable<T> GetAll()
-        {
-            return table.ToList();
-        }
+      
 
         public void Save()
         {

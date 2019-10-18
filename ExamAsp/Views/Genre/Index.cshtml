@@ -1,0 +1,32 @@
+﻿
+@model  ExamAsp.Models.GenreModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<div class="btn_create">
+    @Html.ActionLink("Создать", "Edit")
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th scope="col">Название жанра</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @foreach (var item in ViewBag.Genres)
+            {
+            <tr>
+                <th scope="row">@item.Name</th>
+
+                <td scope="row">@Html.ActionLink("Редактировать", "Edit", "Genre", new { id = @item.Id }, null)</td>
+                <td scope="row">@Html.ActionLink("Удалить", "Delete", "Genre", new { id = @item.Id }, null)</td>
+            </tr>
+        }
+    </table>
