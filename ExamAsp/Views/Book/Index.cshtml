@@ -1,7 +1,11 @@
 ﻿@model ExamAsp.Models.BookModel
-
+<link href="~/Content/style.css" rel="stylesheet" />
 @{
     ViewBag.Title = "Index";
+    
+    List<ExamAsp.Models.AuthorModel> authors = (List<ExamAsp.Models.AuthorModel>)ViewData["authors"];
+    List<ExamAsp.Models.GenreModel> genres = (List<ExamAsp.Models.GenreModel>)ViewData["genres"];
+
 }
 
 <h2>Index</h2>
@@ -11,36 +15,74 @@
     @Html.ActionLink("Создать", "Edit", "Book")
 </div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Название книги</th>
-            <th scope="col">Кол-во Страниц</th>
-            <th scope="col">Цена</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
+<div class="block1">
+    <table>
+        <tbody>
             @foreach (var item in ViewBag.Books)
             {
-            <tr>
+                string author = authors.Where(a => a.Id == item.AuthorId).First().FirstName + " " + authors.Where(a => a.Id == item.AuthorId).First().LastName;
+                string genre = genres.Where(g => g.Id == item.GenreId).First().Name;
 
-                <th scope="row">@item.Title</th>
-                <th scope="row">@item.Pages</th>
-                <th scope="row">@item.Price</th>
+                <tr>
+                    <td height="40px" colspan="2" valign="bottom"> <h2>@item.Title</h2></td>
+                </tr>
 
-                <td scope="row">@Html.ActionLink("Редактировать", "Edit", "Book", new { id = @item.Id }, null)</td>
-                <td scope="row">@Html.ActionLink("Удалить", "Delete", "Book", new { id = @item.Id }, null)</td>
+                <tr>
 
-            </tr>
+                    <td>@item.ImageData</td>
+                    <td valign="top">
+                        <p>
+                            <b>Автор: @author </b>
+                        </p>
 
-        }
-    </table>
 
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
+                        <p>
+                            <b>Жанр: @genre </b>
+                        </p>
 
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }
+
+
+                        <p>
+                            <b>Страниц: @item.Pages </b>
+                        </p>
+                    </td>
+
+                </tr>
+ 
+             }
+
+
+                    </tbody>
+                </table>
+            </div>
+
+
+
+
+
+
+
+                            @*string author = authors.Where(a => a.Id == item.AuthorId).First().FirstName + " " + authors.Where(a => a.Id == item.AuthorId).First().LastName;
+                            string genre = genres.Where(g => g.Id == item.GenreId).First().Name;
+
+                    <table>
+
+                        @author
+                        @genre
+                        @item.Pages
+
+                        @Html.ActionLink("Редактировать", "Edit", "Book", new { id = @item.Id }, null)
+                        @Html.ActionLink("Удалить", "Delete", "Book", new { id = @item.Id }, null)
+
+                    </table>
+
+                    }
+            </table>
+
+                <div>
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+
+                @section Scripts {
+                    @Scripts.Render("~/bundles/jqueryval")
+                }*@

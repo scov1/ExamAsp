@@ -1,8 +1,10 @@
 using ExamAsp.App_Start;
+using ExamAsp.Controllers;
 using System;
 using System.Web.Mvc;
 using Unity;
 using Unity.AspNet.Mvc;
+using Unity.Injection;
 
 namespace ExamAsp
 {
@@ -85,6 +87,9 @@ namespace ExamAsp
             AutomapperConfig.RegisterWithUnity(container);
             container.RegisterInstance<IUnityContainer>(container);
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
+
+            container.RegisterType<AccountController>(new InjectionConstructor());
+
         }
     }
 }

@@ -1,0 +1,44 @@
+﻿body {
+    
+}
+
+
+.content {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+
+}
+
+td {
+    height: 40px;
+    vertical-align: bottom;
+}
+
+.block1 {
+    font-size: 11px;
+    border-radius: 10px;
+    border: 1px solid #D0CFCC;
+    float: left;
+    display: inline;
+    width: 358px;
+    height: 220px;
+    margin: 5px;
+    margin-top: 0px;
+    padding: 5px;
+    background-color: #364a5f;
+    color: aliceblue;
+}
+
+    .block1 h2 {
+        margin: 0px;
+        margin-bottom: 3px;
+        padding: 0px;
+        color: #f3a011;
+        font-size: 26px;
+        text-align: center;
+        border-bottom: 2px solid #D0CFCC;
+        font-weight: bold;
+        letter-spacing: 2px;
+        width: 341px;
+    }

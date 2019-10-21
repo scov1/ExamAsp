@@ -38,9 +38,9 @@ namespace ExamAsp.Controllers
         public ActionResult Edit(int? id)
         {
             var bookBO = DependencyResolver.Current.GetService<BookBO>();
-            var authors = DependencyResolver.Current.GetService<AuthorBO>();
+            //var authors = DependencyResolver.Current.GetService<AuthorBO>();
             var model = mapper.Map<BookModel>(bookBO);
-            var genres = DependencyResolver.Current.GetService<GenreBO>();
+            //var genres = DependencyResolver.Current.GetService<GenreBO>();
 
             if (id != null)
             {
@@ -48,15 +48,20 @@ namespace ExamAsp.Controllers
                 model = mapper.Map<BookModel>(bookBOList);
             }
 
-            ViewBag.Authors = new SelectList(authors.GetAuthorsList().Select(x => mapper.Map<AuthorModel>(x)).ToList(), "Id", "LastName");
-            ViewBag.Genres = new SelectList(genres.GetGenreList().Select(x => mapper.Map<GenreModel>(x)).ToList(), "Id", "Name");
+            //ViewBag.Authors = new SelectList(authors.GetAuthorsList().Select(x => mapper.Map<AuthorModel>(x)).ToList(), "Id", "LastName");
+            //ViewBag.Genres = new SelectList(genres.GetGenreList().Select(x => mapper.Map<GenreModel>(x)).ToList(), "Id", "Name");
+
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("Partial/EditPartialView", model);
+            }
 
             return View(model);
         }
 
 
         [HttpPost]
-        public ActionResult Edit(BookModel model, HttpPostedFileBase imageBook)
+        public ActionResult Edit(BookModel model, HttpPostedFileBase imageBook, int genre, int author)
         {
             string str = "check";
             var bookBO = mapper.Map<BookBO>(model);
@@ -73,9 +78,19 @@ namespace ExamAsp.Controllers
             {
                 bookBO.ImageData = new byte[str.Length];
             }
-
+            bookBO.GenreId = genre;
+            bookBO.AuthorId = author;
             bookBO.Save();
             var books = DependencyResolver.Current.GetService<BookBO>().GetBooksList();
+
+
+
+
+            var authorList = DependencyResolver.Current.GetService<AuthorBO>().GetAuthorsList();
+            var genreList = DependencyResolver.Current.GetService<GenreBO>().GetGenreList();
+
+            ViewBag.Authors = authorList.Select(m => mapper.Map<AuthorModel>(m)).ToList();
+            ViewBag.Genres = genreList.Select(m => mapper.Map<GenreModel>(m)).ToList();
 
             return RedirectToActionPermanent("Index", "Book");
         }
