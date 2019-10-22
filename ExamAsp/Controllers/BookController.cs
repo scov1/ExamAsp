@@ -57,16 +57,16 @@ namespace ExamAsp.Controllers
 
 
         [HttpPost]
-        public ActionResult Edit(BookModel model, HttpPostedFileBase imageBook)
+        public ActionResult Edit(BookModel model, HttpPostedFileBase upload)
         {
             string str = "check";
             var bookBO = mapper.Map<BookBO>(model);
             byte[] imageData = null;
-            if (imageBook != null)
+            if (upload != null)
             {
-                using (var binaryReader = new BinaryReader(imageBook.InputStream))
+                using (var binaryReader = new BinaryReader(upload.InputStream))
                 {
-                    imageData = binaryReader.ReadBytes(imageBook.ContentLength);
+                    imageData = binaryReader.ReadBytes(upload.ContentLength);
                 }
                 bookBO.ImageData = imageData;
             }

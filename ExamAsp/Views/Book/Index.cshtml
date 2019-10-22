@@ -36,8 +36,14 @@
                                 <p>
                                     <b>Страниц: @item.Pages </b>
                                 </p>
-                                @Html.ActionLink("Редактировать", "Edit", "Book", new { id = @item.Id }, new { @class = "btn" })
-                                @Html.ActionLink("Удалить", "Delete", "Book", new { id = @item.Id }, new {@class = "btn"})
+
+                            <td scope="row">
+                                @Html.Raw("<img style='width:60px; height:60px;' src=\"data:image/jpeg;base64,"
+                            + Convert.ToBase64String(item.ImageData) + "\" />")
+                            </td>
+
+                            @Html.ActionLink("Редактировать", "Edit", "Book", new { id = @item.Id }, new { @class = "btn" })
+                            @Html.ActionLink("Удалить", "Delete", "Book", new { id = @item.Id }, new { @class = "btn" })
                             </td>
                         </tr>
                     </tbody>
