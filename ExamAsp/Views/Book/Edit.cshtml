@@ -1,34 +1,33 @@
 ﻿@model ExamAsp.Models.BookModel
 
+<link href="~/Content/style.css" rel="stylesheet" />
+
 @{
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<div class="header"></div>
 
 
-@using (Html.BeginForm("Edit", "Book", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>BookModel</h4>
-        <hr />
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.AuthorId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.AuthorId,"Автор", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*@Html.DropDownListFor(model => model.AuthorId, ViewBag.Authors as SelectList, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.AuthorId, "", new { @class = "text-danger" })*@
-                <select id="authorList" class="form-control" name="author"></select>
-                @Html.ValidationMessageFor(model => model.AuthorId, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.AuthorId, ViewBag.Authors as SelectList, new { htmlAttributes = new { @class = "dropDown" } })
+                @Html.ValidationMessageFor(model => model.AuthorId, "", new { @class = "text-danger" })       
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Title,"Название", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
@@ -36,7 +35,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Pages, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Pages,"Кол-во страниц", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Pages, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Pages, "", new { @class = "text-danger" })
@@ -44,19 +43,18 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.GenreId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.GenreId,"Жанр", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*@Html.DropDownListFor(model => model.GenreId, ViewBag.Genres as SelectList, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.GenreId, "", new { @class = "text-danger" })*@
-                <select id="genreList" name="genre" class="form-control"></select>
-                @Html.ValidationMessageFor(model => model.GenreId, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.GenreId, ViewBag.Genres as SelectList, new { htmlAttributes = new { @class = "dropDown" } })
+                    @Html.ValidationMessageFor(model => model.GenreId, "", new { @class = "text-danger" })
+              
             </div>
         </div>
 
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Сохранить" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -65,37 +63,3 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
-@*@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}*@
-
-<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script type="text/javascript">
-    $.ajax({
-        url: '@Url.Action("GenreDropDown")',
-        type: 'GET',
-        data: {
-            //genre: $("#genreList").val()
-        },
-        success: function (data) {
-            var s = '';
-            for (var i = 0; i < data.length; i++) {
-                s += '<option value="' + data[i].Id + '">' + data[i].Name + '</option>';
-            }
-            $("#genreList").html(s);
-        }
-    })
-    $.ajax({
-        url: '@Url.Action("AuthorDropDown")',
-        type: 'GET',
-        data: {},
-        success: function (data) {
-            var s = '';
-            for (var i = 0; i < data.length; i++) {
-                s += 'option value="' + data[i].Id + '">' + data[i].Fio + '</option>';
-            }
-            $("#authorList").html(s);
-        }
-    })
-</script>

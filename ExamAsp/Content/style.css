@@ -2,43 +2,97 @@
     
 }
 
-
-.content {
-    display: table-row-group;
-    vertical-align: middle;
-    border-color: inherit;
-
-}
-
 td {
     height: 40px;
-    vertical-align: bottom;
 }
 
-.block1 {
+
+a.btn:hover {
+    background: rgb(53, 167, 110);
+}
+
+a.btn:active {
+    background: rgb(33,147,90);
+    box-shadow: 0 3px rgb(33,147,90) inset;
+}
+
+a.btn {
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    padding: .8em 1em calc(.8em + 3px);
+    border-radius: 3px;
+    background: rgb(64,199,129);
+    box-shadow: 0 -3px rgb(53,167,110) inset;
+    transition: 0.2s;
+}
+
+
+table {
     font-size: 11px;
     border-radius: 10px;
     border: 1px solid #D0CFCC;
-    float: left;
-    display: inline;
-    width: 358px;
-    height: 220px;
+    width: 750px;
+    height: 350px;
     margin: 5px;
     margin-top: 0px;
     padding: 5px;
     background-color: #364a5f;
     color: aliceblue;
+    /* display: inline-block; */
+    margin-bottom: 50px;
 }
 
-    .block1 h2 {
-        margin: 0px;
-        margin-bottom: 3px;
-        padding: 0px;
-        color: #f3a011;
-        font-size: 26px;
-        text-align: center;
-        border-bottom: 2px solid #D0CFCC;
-        font-weight: bold;
-        letter-spacing: 2px;
-        width: 341px;
-    }
+
+
+/*.block2 {
+    font-size: 11px;
+    border-radius: 10px;
+    border: 1px solid #D0CFCC;
+    width: 450px;
+    height: 300px;
+    margin: 5px;
+    margin-top: 0px;
+    padding: 5px;
+    background-color: #364a5f;
+    color: aliceblue;
+}*/
+
+.block2 h2 {
+    margin: 0px;
+    padding: 10px;
+    color: #f3a011;
+    /* font-size: 26px; */
+    text-align: center;
+    border-bottom: 5px solid #D0CFCC;
+    font-weight: bold;
+    letter-spacing: 5px;
+    /* width: 433px;*/
+}
+
+select {
+    height: 20px;
+    padding: 6px 12px 6px 12px;
+    border-radius: 4px;
+    box-sizing: content-box;
+    width: 254px;
+}
+
+.header{
+    margin-bottom:100px;
+}
+
+.items {
+    width: 310px;
+    /* height: 112px; */
+    font-size: 18px;
+    font-weight: 300;
+    padding-top: 12px;
+    line-height: 40px;
+    letter-spacing: 1px;
+}
+
+.btn_create{
+    margin-bottom:20px;
+    margin-top:20px;
+}
