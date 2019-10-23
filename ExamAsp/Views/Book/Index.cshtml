@@ -14,75 +14,32 @@
     @Html.ActionLink("Создать", "Edit", "Book")
 </div>
 
-<div class="block2">
-            @foreach (var item in ViewBag.Books)
-            {
-                string author = authors.Where(a => a.Id == item.AuthorId).First().FirstName + " " + authors.Where(a => a.Id == item.AuthorId).First().LastName;
-                string genre = genres.Where(g => g.Id == item.GenreId).First().Name;
-                <table>
-                    <tbody>
-                        <tr>
-                            <td height="40px" colspan="2" valign="bottom"> <h2>@item.Title</h2></td>
-                        </tr>
-                        <tr>
-                            @*<td>@item.ImageData</td>*@
+<div>
 
-                            <td scope="row">
-                                @Html.Raw("<img style='width:150px; height:150px;' src=\"data:image/jpeg;base64,"
-                            + Convert.ToBase64String(item.ImageData) + "\" />")
-
-                            </td>
-
-                            <td class="items" valign="top">
-                                <p>
-                                    <b>Автор: @author </b>
-                                </p>
-                                <p>
-                                    <b>Жанр: @genre </b>
-                                </p>
-                                <p>
-                                    <b>Страниц: @item.Pages </b>
-                                </p>
-
-                     
-                                @Html.ActionLink("Редактировать", "Edit", "Book", new { id = @item.Id }, new { @class = "btn" })
-                                @Html.ActionLink("Удалить", "Delete", "Book", new { id = @item.Id }, new { @class = "btn" })
-               
-
-
-                        </tr>
-                    </tbody>
-                </table> 
-            }
+    <label>Сортировать:  </label>
+    <select id="sort">
+        <option value="None">По умолчанию</option>
+        <option value="Genre">По жанру</option>
+    </select>
 </div>
 
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    $("#sort").change(function () {
+        console.log("lkf");
+        $.ajax({
+            url: '@Url.Action("Index")',
+            method: 'GET',
+            data: {
+                sort: $("#sort").val()
+            },
+            success: function (data) {
+                $("#bookList").html(data);
+            }
+        })
+    })
+</script>
 
-
-
-
-
-
-            @*string author = authors.Where(a => a.Id == item.AuthorId).First().FirstName + " " + authors.Where(a => a.Id == item.AuthorId).First().LastName;
-                                string genre = genres.Where(g => g.Id == item.GenreId).First().Name;
-
-                        <table>
-
-                            @author
-                            @genre
-                            @item.Pages
-
-                            @Html.ActionLink("Редактировать", "Edit", "Book", new { id = @item.Id }, null)
-                            @Html.ActionLink("Удалить", "Delete", "Book", new { id = @item.Id }, null)
-
-                        </table>
-
-                        }
-                </table>
-
-                    <div>
-                        @Html.ActionLink("Back to List", "Index")
-                    </div>
-
-                    @section Scripts {
-                        @Scripts.Render("~/bundles/jqueryval")
-                    }*@
+<div id="bookList">
+    @Html.Partial("Partial/OrderPartialView")
+</div>

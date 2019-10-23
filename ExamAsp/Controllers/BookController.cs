@@ -19,7 +19,7 @@ namespace ExamAsp.Controllers
             this.mapper = mapper;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(string sort)
         {
             var bookBO = DependencyResolver.Current.GetService<BookBO>();
 
@@ -27,11 +27,19 @@ namespace ExamAsp.Controllers
             var authorList = DependencyResolver.Current.GetService<AuthorBO>().GetAuthorsList();
             var genreList = DependencyResolver.Current.GetService<GenreBO>().GetGenreList();
 
-            ViewBag.Books = bookList.Select(x => mapper.Map<BookModel>(x)).ToList();
-            ViewBag.Authors = authorList.Select(x => mapper.Map<AuthorModel>(x)).ToList();
-            ViewBag.Genres = genreList.Select(x => mapper.Map<GenreModel>(x)).ToList();
-
-            return View();
+            if (sort == "Genre")
+            {
+                var books = bookBO.GetBooksList().Select(x => mapper.Map<BookModel>(x)).ToList();
+                ViewBag.Books = books.OrderBy(y => y.GenreId);
+                ViewBag.Authors = authorList.Select(x => mapper.Map<AuthorModel>(x)).ToList();
+                ViewBag.Genres = genreList.Select(x => mapper.Map<GenreModel>(x)).ToList()
+            }
+            else if(sort == "None"){
+                ViewBag.Books = bookList.Select(x => mapper.Map<BookModel>(x)).ToList();
+                ViewBag.Authors = authorList.Select(x => mapper.Map<AuthorModel>(x)).ToList();
+                ViewBag.Genres = genreList.Select(x => mapper.Map<GenreModel>(x)).ToList();
+            }
+            return View("PartialView/OrderPartialView");
         }
 
 
