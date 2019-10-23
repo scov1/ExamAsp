@@ -61,9 +61,10 @@ namespace ExamAsp.Controllers
         {
             string str = "check";
             var bookBO = mapper.Map<BookBO>(model);
-            byte[] imageData = null;
-            if (upload != null)
+           
+            if (ModelState.IsValid && upload != null)
             {
+                byte[] imageData = null;
                 using (var binaryReader = new BinaryReader(upload.InputStream))
                 {
                     imageData = binaryReader.ReadBytes(upload.ContentLength);
@@ -77,10 +78,8 @@ namespace ExamAsp.Controllers
             //bookBO.GenreId = genre;
             //bookBO.AuthorId = author;
             bookBO.Save();
+
             var books = DependencyResolver.Current.GetService<BookBO>().GetBooksList();
-
-
-
 
             var authorList = DependencyResolver.Current.GetService<AuthorBO>().GetAuthorsList();
             var genreList = DependencyResolver.Current.GetService<GenreBO>().GetGenreList();
