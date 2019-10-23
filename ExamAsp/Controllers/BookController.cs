@@ -27,19 +27,31 @@ namespace ExamAsp.Controllers
             var authorList = DependencyResolver.Current.GetService<AuthorBO>().GetAuthorsList();
             var genreList = DependencyResolver.Current.GetService<GenreBO>().GetGenreList();
 
-            if (sort == "Genre")
+            if (Request.IsAjaxRequest())
             {
-                var books = bookBO.GetBooksList().Select(x => mapper.Map<BookModel>(x)).ToList();
-                ViewBag.Books = books.OrderBy(y => y.GenreId);
+                if (sort == "Genre")
+                {
+                    var books = bookBO.GetBooksList().Select(x => mapper.Map<BookModel>(x)).ToList();
+                    ViewBag.Books = books.OrderBy(y => y.GenreId);
+
+                }
+                else if (sort == "None")
+                {
+                    ViewBag.Books = bookList.Select(x => mapper.Map<BookModel>(x)).ToList();
+
+                }
                 ViewBag.Authors = authorList.Select(x => mapper.Map<AuthorModel>(x)).ToList();
-                ViewBag.Genres = genreList.Select(x => mapper.Map<GenreModel>(x)).ToList()
+                ViewBag.Genres = genreList.Select(x => mapper.Map<GenreModel>(x)).ToList();
+                return View("PartialView/OrderPartialView");
             }
-            else if(sort == "None"){
-                ViewBag.Books = bookList.Select(x => mapper.Map<BookModel>(x)).ToList();
+
+            else
+            {
+                ViewBag.Books = bookBO.GetBooksList().Select(x => mapper.Map<BookModel>(x)).ToList();
                 ViewBag.Authors = authorList.Select(x => mapper.Map<AuthorModel>(x)).ToList();
                 ViewBag.Genres = genreList.Select(x => mapper.Map<GenreModel>(x)).ToList();
             }
-            return View("PartialView/OrderPartialView");
+                return View();
         }
 
 
