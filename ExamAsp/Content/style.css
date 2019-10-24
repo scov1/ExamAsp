@@ -28,11 +28,11 @@ a.btn {
 }
 
 
-table {
+.books_table {
     font-size: 11px;
     border-radius: 10px;
     border: 1px solid #D0CFCC;
-    width: 750px;
+    width: 700px;
     height: 350px;
     margin: 5px;
     margin-top: 0px;
@@ -95,4 +95,90 @@ select {
 .btn_create{
     margin-bottom:20px;
     margin-top:20px;
+
+}
+
+.block2 img {
+    margin-left: 100px;
+    margin-bottom: 35px;
+}
+
+.item_sort{
+    margin-top:20px;
+    margin-bottom:40px;
+}
+
+.btn_create a {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px rgba(255,255,255,.2), 0 -1px rgba(0,0,0,.8);
+    outline: none;
+    border: none;
+    border-radius: 100px;
+    background: rgb(28,107,114) radial-gradient(150% 100% at 50% 5px, rgba(255,255,255,.2), rgba(0,0,0,0));
+    box-shadow: inset rgba(0,0,0,.6) 0 -2px 5px, inset rgba(252,255,255,.7) 0 2px 5px, rgba(0,0,0,.8) 0 2px 5px -1px;
+    color: rgb(0,79,86);
+    user-select: none;
+    margin-top: 50px;
+}
+
+.btn_create a:hover {
+        color: rgb(0,59,66);
+        cursor: pointer;
+    }
+
+.btn_create a:active {
+        padding-bottom: 1px;
+        box-shadow: inset rgba(0,0,0,1) 0 1px 3px, inset rgba(0,0,0,.6) 0 -2px 5px, inset rgba(252,255,255,.7) 0 2px 5px, 0 1px rgba(255,255,255,.08);
+        color: rgb(128,207,214);
+    }
+
+
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+
+
+
+.container li {  
+        transition: background-position-x 0.9s linear;
+    }
+
+
+.container li:hover a {
+   color: #d94f5c;
+}
+
+.container li:hover {
+    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB2ZXJzaW9uPSIxLjEi%0D%0AIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhs%0D%0AaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB3aWR0%0D%0AaD0iMzkwcHgiIGhlaWdodD0iNTBweCIgdmlld0JveD0iMCAwIDM5MCA1MCIgZW5hYmxlLWJhY2tn%0D%0Acm91bmQ9Im5ldyAwIDAgMzkwIDUwIiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHBhdGggZmlsbD0i%0D%0Abm9uZSIgc3Ryb2tlPSIjZDk0ZjVjIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLW1pdGVybGlt%0D%0AaXQ9IjEwIiBkPSJNMCw0Ny41ODVjMCwwLDk3LjUsMCwxMzAsMAoJYzEzLjc1LDAsMjguNzQtMzgu%0D%0ANzc4LDQ2LjE2OC0xOS40MTZDMTkyLjY2OSw0Ni41LDI0My42MDMsNDcuNTg1LDI2MCw0Ny41ODVj%0D%0AMzEuODIxLDAsMTMwLDAsMTMwLDAiLz4KPC9zdmc+Cg==");
+    animation: line 1s;
+}
+
+.container li a {
+     color: #777;
+     text-decoration: none;
+     transition: all 0.45s;
+}
+
+
+@keyframes line {
+    0% {
+        background-position-x: 390px;
+    }
+}
+
+.jumbotron {
+    background-color: #364a5f;
+    margin-top: 200px;
+}
+
+.jumbotron h1{
+    color:aliceblue;
+}
+
+.jumbotron p {
+        color: #999999;
 }

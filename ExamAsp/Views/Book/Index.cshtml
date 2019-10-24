@@ -11,18 +11,18 @@
 }
 
 <div class="btn_create">
-    @Html.ActionLink("Создать книгу", "Edit", "Book")
+    @Html.ActionLink("Создать", "Edit", "Book")
 
-
-    <div>
+</div>
+    <div class="item_sort">
 
         <label>Сортировать:  </label>
         <select id="sort">
             <option value="None">По умолчанию</option>
-            <option value="Title">По жанру</option>
+            <option value="Title">По названию</option>
         </select>
     </div>
-</div>
+
 
 <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
