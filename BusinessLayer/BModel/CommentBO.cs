@@ -38,7 +38,7 @@ namespace BusinessLayer.BModel
             return comments;
         }
 
-        public List<CommentBO> GetListGenre()
+        public List<CommentBO> GetListComment()
         {
             List<CommentBO> comments = new List<CommentBO>();
 

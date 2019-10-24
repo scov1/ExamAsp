@@ -29,10 +29,10 @@ namespace ExamAsp.Controllers
 
             if (Request.IsAjaxRequest())
             {
-                if (sort == "Genre")
+                if (sort == "Title")
                 {
                     var books = bookBO.GetBooksList().Select(x => mapper.Map<BookModel>(x)).ToList();
-                    ViewBag.Books = books.OrderBy(y => y.GenreId);
+                    ViewBag.Books = books.OrderBy(y => y.Title);
 
                 }
                 else if (sort == "None")
@@ -40,9 +40,10 @@ namespace ExamAsp.Controllers
                     ViewBag.Books = bookList.Select(x => mapper.Map<BookModel>(x)).ToList();
 
                 }
+
                 ViewBag.Authors = authorList.Select(x => mapper.Map<AuthorModel>(x)).ToList();
                 ViewBag.Genres = genreList.Select(x => mapper.Map<GenreModel>(x)).ToList();
-                return View("PartialView/OrderPartialView");
+                return View("PartialView/BookPartialView");
             }
 
             else

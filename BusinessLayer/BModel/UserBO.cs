@@ -47,6 +47,16 @@ namespace BusinessLayer.BModel
             return users;
         }
 
+        public UserBO GetUserByLogin(string login)
+        {
+            UserBO user;
+
+            using (var unitOfWork = unitOfWorkFactory.Create())
+            {
+                user = unitOfWork.EntityRepository.GetAll().Where(a => a.Login == login).Select(item => mapper.Map<UserBO>(item)).FirstOrDefault();
+            }
+            return user;
+        }
 
         public void Save()
         {

@@ -2,48 +2,32 @@
 
 @{
     ViewBag.Title = "Index";
+    List<ExamAsp.Models.BookModel> books = ViewBag.Books;
 }
 
-<h2>Index</h2>
-
-
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.BookId,"Книга", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.BookId, ViewBag.Books as SelectList, new { htmlAttributes = new { @class = "dropDown" } })
-                @Html.ValidationMessageFor(model => model.BookId, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Votes,"Оценка", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Votes, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Votes, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div class="btn_create">
+    @Html.ActionLink("Создать", "Edit")
 </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+<table class="table">
+    <thead>
+        <tr>
+
+            <th scope="col">Рейтинг</th>
+            <th scope="col">Книга</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @foreach (var item in ViewBag.Ratings)
+            {
+                string book = books.Where(x => x.Id == item.BookId).First().Title;
+        <tr>
+            <th scope="row">@item.Votes</th>
+            <th scope="row">@book</th>
+
+            <td scope="row">@Html.ActionLink("Редактировать", "Edit", "Genre", new { id = @item.Id }, null)</td>
+            <td scope="row">@Html.ActionLink("Удалить", "Delete", "Genre", new { id = @item.Id }, null)</td>
+        </tr>
+        }
+    </table>

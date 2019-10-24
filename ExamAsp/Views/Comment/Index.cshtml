@@ -1,0 +1,25 @@
+﻿@model IEnumerable<ExamAsp.Models.CommentModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@section head {
+    <script type="text/javascript"
+            src="@Url.Content("~/scripts/Ajax.js")">
+    </script>
+}
+
+
+@foreach (var comment in Model)
+{
+    <li>@comment</li>
+}
+
+<form method="post" id="commentForm" action="@Url.Action("CreateComment")">
+    @Html.TextArea("Comment", new { rows = 5, cols = 50 })
+    <br />
+    <input type="submit" value="Add Comment" />
+</form>

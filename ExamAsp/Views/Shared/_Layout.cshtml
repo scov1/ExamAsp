@@ -18,6 +18,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Писательская платформа", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
@@ -31,6 +33,7 @@
                     <li>@Html.ActionLink("Книги", "Index", "Book")</li>
                     <li>@Html.ActionLink("Жанры", "Index", "Genre")</li>
                     <li>@Html.ActionLink("Рейтинг", "Index", "Rating")</li>
+                    <li>@Html.ActionLink("Комментарии", "Index", "Comment")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

@@ -11,16 +11,17 @@
 }
 
 <div class="btn_create">
-    @Html.ActionLink("Создать", "Edit", "Book")
-</div>
+    @Html.ActionLink("Создать книгу", "Edit", "Book")
 
-<div>
 
-    <label>Сортировать:  </label>
-    <select id="sort">
-        <option value="None">По умолчанию</option>
-        <option value="Genre">По жанру</option>
-    </select>
+    <div>
+
+        <label>Сортировать:  </label>
+        <select id="sort">
+            <option value="None">По умолчанию</option>
+            <option value="Title">По жанру</option>
+        </select>
+    </div>
 </div>
 
 <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -28,7 +29,7 @@
     $("#sort").change(function () {
         console.log("lkf");
         $.ajax({
-            url: '@Url.Action("Index")',
+            url: '@Url.Action("PartialView/BookPartialView")',
             method: 'GET',
             data: {
                 sort: $("#sort").val()
@@ -41,5 +42,5 @@
 </script>
 
 <div id="bookList">
-    @Html.Partial("PartialView/OrderPartialView")
+    @Html.Partial("PartialView/BookPartialView")
 </div>

@@ -1,0 +1,25 @@
+﻿@model ExamAsp.Models.CommentModel
+
+@{
+    ViewBag.Title = "CommentPartialView";
+    List<ExamAsp.Models.UserModel> users = ViewBag.Users;
+
+}
+
+<h2>CommentPartialView</h2>
+
+<div id="commentsList"> </div>
+
+<div>
+    @foreach (var item in ViewBag.Comments)
+    {
+        string login = users.Where(u => u.Id == item.UserId).First().Login;
+
+        <div class="comments">
+            <div class="comment dialog">
+                @Html.Label(login)
+                <p>@item.CommentsText</p>
+            </div>
+        </div>
+    }
+</div>
