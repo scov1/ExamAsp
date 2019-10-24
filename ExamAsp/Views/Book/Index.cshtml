@@ -29,7 +29,7 @@
     $("#sort").change(function () {
         console.log("lkf");
         $.ajax({
-            url: '@Url.Action("PartialView/BookPartialView")',
+            url: '@Url.Action("Index")',
             method: 'GET',
             data: {
                 sort: $("#sort").val()
