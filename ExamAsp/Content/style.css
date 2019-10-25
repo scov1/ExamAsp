@@ -215,3 +215,8 @@ select {
     margin-top: 34px;
     letter-spacing: 0.3px;
 }
+
+.comment_drop{
+    width:500px;
+    height:400px;
+}
