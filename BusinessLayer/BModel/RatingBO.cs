@@ -35,7 +35,7 @@ namespace BusinessLayer.BModel
             return ratings;
         }
 
-        public List<RatingBO> GetAllListRating()
+        public List<RatingBO> GetListRating()
         {
             List<RatingBO> ratings = new List<RatingBO>();
 

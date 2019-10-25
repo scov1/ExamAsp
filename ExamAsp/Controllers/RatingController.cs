@@ -22,7 +22,7 @@ namespace ExamAsp.Controllers
         {
             var ratingBO = DependencyResolver.Current.GetService<RatingBO>();
 
-            var ratingList = ratingBO.GetAllListRating();
+            var ratingList = ratingBO.GetListRating();
             var bookList = DependencyResolver.Current.GetService<BookBO>().GetBooksList();
 
             ViewBag.Ratings = ratingList.Select(x => mapper.Map<RatingModel>(x)).ToList();
@@ -39,8 +39,8 @@ namespace ExamAsp.Controllers
 
             if(id!=null)
             {
-                var ratingBOList = ratingBO.GetListRatingById(id);
-                model = mapper.Map<RatingModel>(ratingBOList);
+                var ratingList = ratingBO.GetListRatingById(id);
+                model = mapper.Map<RatingModel>(ratingList);
             }
 
             ViewBag.Books = new SelectList(books.GetBooksList().Select(x => mapper.Map<BookModel>(x)).ToList(), "Id", "Title");

@@ -1,5 +1,8 @@
-﻿body {
-    
+﻿@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+@import url('https://fonts.googleapis.com/css?family=Roboto:display=swap');
+
+body {
+    font-family: Roboto, sans-serif;
 }
 
 td {
@@ -43,8 +46,9 @@ a.btn {
     margin-bottom: 50px;
 }
 
-
-
+.navbar-inverse .navbar-brand{
+    color:aliceblue;
+}
 /*.block2 {
     font-size: 11px;
     border-radius: 10px;
@@ -57,7 +61,6 @@ a.btn {
     background-color: #364a5f;
     color: aliceblue;
 }*/
-
 .block2 h2 {
     margin: 0px;
     padding: 10px;
@@ -78,8 +81,9 @@ select {
     width: 254px;
 }
 
-.header{
-    margin-bottom:100px;
+.col-md-10 {
+    width:26.6%;
+
 }
 
 .items {
@@ -139,9 +143,6 @@ select {
     }
 
 
-@import url("https://fonts.googleapis.com/css?family=Varela+Round");
-
-
 
 .container li {  
         transition: background-position-x 0.9s linear;
@@ -171,14 +172,46 @@ select {
 }
 
 .jumbotron {
-    background-color: #364a5f;
+    /*background-color: #364a5f;*/
     margin-top: 200px;
+    background-image:url(img/bg.jpg);
 }
 
 .jumbotron h1{
     color:aliceblue;
 }
 
-.jumbotron p {
-        color: #999999;
+    .jumbotron p {
+        color: #b9c2ca;
+        font-family:Varela;
+    }
+
+.navbar-inverse {
+    background-color: #1f2236;
+}
+
+.main_right {
+    background-color: #52354b;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Marck+Script&display=swap&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Infant&display=swap&subset=cyrillic');
+
+.txt {
+    color: aliceblue;
+    font-size: 18px;
+    font-family: 'Cormorant Infant', serif;
+    margin-top: 65px;
+    width: 370px;
+    margin-left: 20px;
+}
+
+.txt_bold {
+    color: aliceblue;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: 20px;
+    margin-top: 34px;
+    letter-spacing: 0.3px;
 }
