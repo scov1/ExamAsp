@@ -29,7 +29,7 @@ namespace ExamAsp.Controllers
             ViewBag.Users = usersBO.Select(a => mapper.Map<UserModel>(a)).ToList();
 
             return View();
-        }
+        }asd
 
         [HttpPost]
         public ActionResult CreateComment(CommentModel model)
