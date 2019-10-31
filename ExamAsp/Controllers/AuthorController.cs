@@ -23,7 +23,7 @@ namespace ExamAsp.Controllers
             var authorList = authorBO.GetAuthorsList();
             ViewBag.Authors = authorList.Select(x => mapper.Map<AuthorModel>(x)).ToList();
 
-            //ViewBag.Authors = authorList.Select(item => mapper.Map<AuthorModel>(item)).ToList();
+      
        
 
             return View();
