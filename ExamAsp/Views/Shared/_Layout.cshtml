@@ -23,11 +23,12 @@
                 </button>
                 @Html.ActionLink("Писательская платформа", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
+
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     @*<li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>*@
                     @*<li>@Html.ActionLink("О программе", "About", "Home")</li>
-        <li>@Html.ActionLink("Контакт", "Contact", "Home")</li>*@
+                        <li>@Html.ActionLink("Контакт", "Contact", "Home")</li>*@
                     <li>@Html.ActionLink("Авторы", "Index", "Author")</li>
                     <li>@Html.ActionLink("Пользователи", "Index", "User")</li>
                     <li>@Html.ActionLink("Книги", "Index", "Book")</li>
@@ -36,9 +37,12 @@
                     <li>@Html.ActionLink("Комментарии", "Index", "Comment")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
+
             </div>
+
         </div>
     </div>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
